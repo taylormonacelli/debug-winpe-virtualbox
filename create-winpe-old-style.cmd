@@ -14,7 +14,7 @@ rem copy /y "C:\Program Files\Windows Embedded Standard 7\Tools\IBW\AMD64\source
 copy /y "C:\Program Files\Windows Embedded Standard 7\Tools\IBW\x86\sources\boot.wim" c:\winpe_x86\winpe.wim
 copy c:\winpe_x86\winpe.wim c:\winpe_x86\ISO\sources\boot.wim
 imagex /mountrw c:\winpe_x86\winpe.wim 1 c:\winpe_x86\mount
-Dism /Mount-Wim /WimFile:c:\winpe_x86\ISO\sources\boot.wim /index:1 /MountDir:c:\winpe_x86\mount
+rem Dism /Mount-Wim /WimFile:c:\winpe_x86\ISO\sources\boot.wim /index:1 /MountDir:c:\winpe_x86\mount
 
 copy /y c:\winpe_x86\ISO\bootmgr c:\winpe_x86\mount
 mkdir c:\winpe_x86\mount\boot
@@ -38,7 +38,7 @@ Bcdedit /store c:\winpe_x86\mount\boot\BCD -set %guid% systemroot \windows
 Bcdedit /store c:\winpe_x86\mount\boot\BCD -set %guid% winpe yes
 Bcdedit /store c:\winpe_x86\mount\boot\BCD -displayorder %guid% -addlast
 
-Dism /Unmount-Wim /MountDir:C:\winpe_x86\mount /Commit
+rem Dism /Unmount-Wim /MountDir:C:\winpe_x86\mount /Commit
 
 Oscdimg -n -m -o -bC:\winpe_x86\Etfsboot.com C:\winpe_x86\ISO C:\winpe_x86\winpex86.iso
 
