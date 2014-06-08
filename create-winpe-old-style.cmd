@@ -13,7 +13,8 @@ cmd /c copype.cmd x86 c:\winpe_x86
 rem copy /y "C:\Program Files\Windows Embedded Standard 7\Tools\IBW\AMD64\sources\boot.wim" c:\winpe_x86\winpe.wim
 copy /y "C:\Program Files\Windows Embedded Standard 7\Tools\IBW\x86\sources\boot.wim" c:\winpe_x86\winpe.wim
 copy c:\winpe_x86\winpe.wim c:\winpe_x86\ISO\sources\boot.wim
-Dism /Mount-Wim /WimFile:c:\winpe_x86\ISO\sources\boot.wim /index:1 /MountDir:c:\winpe_x86\mount
+imagex /mountrw c:\winpe_x86\winpe.wim 1 c:\winpe_x86\mount
+rem Dism /Mount-Wim /WimFile:c:\winpe_x86\ISO\sources\boot.wim /index:1 /MountDir:c:\winpe_x86\mount
 
 copy /y c:\winpe_x86\ISO\bootmgr c:\winpe_x86\mount
 mkdir c:\winpe_x86\mount\boot
